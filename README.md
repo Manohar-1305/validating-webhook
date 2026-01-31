@@ -13,7 +13,7 @@ Pods are created by humans, CI pipelines, and automation
 - Cost allocation, ownership tracking, and security enforcement break silently
 Once a bad resource is created, remediation is already late.
 
-# This webhook enforces standards at the API server boundary, where enforcement is guaranteed.
+* This webhook enforces standards at the API server boundary, where enforcement is guaranteed.
 
 # What this webhook does
 Intercepts Pod CREATE requests
