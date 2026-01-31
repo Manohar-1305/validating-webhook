@@ -188,7 +188,7 @@ metadata:
 ```
 kubectl apply -f manifests/namespace.yaml
 ```
-# 2. TLS Secret using the certificates ✅ (explicitly included)
+# 2. TLS Secret using the certificates (explicitly included)
 
 * Create the TLS secret that will be mounted into the webhook pods:
 ```
