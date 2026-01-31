@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: validating-webhook
+  namespace: webhook
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: validating-webhook
+  template:
+    metadata:
+      labels:
+        app: validating-webhook
+    spec:
+      containers:
+        - name: webhook
+          image: validating-webhook:v1
+          ports:
+            - containerPort: 8443
+          volumeMounts:
+            - name: tls
+              mountPath: /certs
+              readOnly: true
+      volumes:
+        - name: tls
+          secret:
+            secretName: validating-webhook-tls
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: validating-webhook
+  namespace: webhook
+spec:
+  selector:
+    app: validating-webhook
+  ports:
+    - port: 443
+      targetPort: 8443
