@@ -9,8 +9,8 @@ Real-world problem this solves
 In real Kubernetes environments:
 
 Pods are created by humans, CI pipelines, and automation
-Labels like team and environment are often optional or forgotten
-Cost allocation, ownership tracking, and security enforcement break silently
+- Labels like team and environment are often optional or forgotten
+- Cost allocation, ownership tracking, and security enforcement break silently
 Once a bad resource is created, remediation is already late.
 
 # This webhook enforces standards at the API server boundary, where enforcement is guaranteed.
@@ -25,10 +25,10 @@ Rejects the request if labels are missing
 
 # What it intentionally does NOT do
 
-No mutation
-No Kubernetes API calls
-No RBAC requirements
-No external dependencies
+- No mutation
+- No Kubernetes API calls
+- No RBAC requirements
+- No external dependencies
 
 # This is pure validation with zero side effects.
 
