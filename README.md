@@ -1,4 +1,4 @@
-Kubernetes Validating Admission Webhook (Flask + TLS)
+Validating Webhooks: Preventing Misconfigured Workloads with Kubernetes
 
 This repository demonstrates a production-grade Kubernetes Validating Admission Webhook implemented using Python Flask, secured with TLS (SAN-based certificates), and deployed directly into a Kubernetes cluster.
 
