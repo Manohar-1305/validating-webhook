@@ -42,7 +42,8 @@ No external dependencies
 
 This is pure validation with zero side effects.
 
-Project structure
+* Project structure
+```
 validating-webhook/
 ├── app.py
 ├── Dockerfile
@@ -53,7 +54,7 @@ validating-webhook/
 │   ├── deployment.yaml
 │   ├── service.yaml
 │   └── validating-webhook.yaml
-
+```
 Webhook implementation (Flask)
 
 app.py
