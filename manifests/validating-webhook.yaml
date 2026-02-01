@@ -3,19 +3,23 @@ kind: ValidatingWebhookConfiguration
 metadata:
   name: validate-required-labels
 webhooks:
-  - name: labels.webhook.example.com
-    admissionReviewVersions: ["v1"]
-    sideEffects: None
-    failurePolicy: Fail
-    rules:
-      - apiGroups: [""]
-        apiVersions: ["v1"]
-        operations: ["CREATE"]
-        resources: ["pods"]
-    clientConfig:
-      service:
-        name: validating-webhook
-        namespace: webhook
-        path: /validate
-        port: 443
-      caBundle: <PASTE_CA_BUNDLE_HERE>
+- name: labels.webhook.example.com
+  admissionReviewVersions: ["v1"]
+  sideEffects: None
+  failurePolicy: Fail
+  rules:
+  - apiGroups: [""]
+    apiVersions: ["v1"]
+    operations: ["CREATE"]
+    resources: ["pods"]
+  - apiGroups: ["apps"]
+    apiVersions: ["v1"]
+    operations: ["CREATE"]
+    resources: ["deployments"]
+  clientConfig:
+    service:
+      name: validating-webhook
+      namespace: webhook
+      path: /validate
+      port: 443
+    caBundle: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUR5RENDQXJDZ0F3SUJBZ0lVZkR1VTlyYmZMUzV2YXZHYUpwYVlmVlNqaFFVd0RRWUpLb1pJaHZjTkFRRUwKQlFBd0lERWVNQndHQTFVRUF3d1ZkbUZzYVdSaGRHbHVaeTEzWldKb2IyOXJMV05oTUI0WERUSTJNREl3TVRFMApNemt6TUZvWERUSTNNREl3TVRFME16a3pNRm93S1RFbk1DVUdBMVVFQXd3ZWRtRnNhV1JoZEdsdVp5MTNaV0pvCmIyOXJMbmRsWW1odmIyc3VjM1pqTUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FROEFNSUlCQ2dLQ0FRRUEKdE8xUDlDNXVGbUhzYitTRC9sK3hTai9YNEkvTHpVNDQyUHQ4a0dqTXBPQkl3S04rY29aaDR4eGNKVjNZVVNSWAo3Vkl1QlBETTQ0RzN1UDZoYjdtZUJZbURSOC83bXhubXNTL0ZKSVBFUWdvVlpXSnRNaTE3emxMdXJ6cERhOE4yCkpKaHhYdDdLZzRIcW9nVTVjM1hHd3l3Mk9WamdDWGlwclR0NnZsaVM2Um9lN0J2Qjl3am82Z0d0ZkV4bVoxR08KTFRWZFJUK3oxMGtBNHdZUWN3RWFuVlE5SnJLRUF0Tjg5RnBwd1V2dU95OHZuc2dwU2YxdVY0c0FVbkZ0cnNuSgpPd0xYOERhNFFrcnUrYmZsMHJ4MWJja2FSTktQZ2hZZFZSUGxyYUZadXZTRU9JSFArcE1BdDFqQnhrMzZ0b2JNClJ5RkFVNnBVcUtsZERyVzdCMDN5UXdJREFRQUJvNEh3TUlIdE1Bc0dBMVVkRHdRRUF3SUVNREFUQmdOVkhTVUUKRERBS0JnZ3JCZ0VGQlFjREFUQ0JpQVlEVlIwUkJJR0FNSDZDRW5aaGJHbGtZWFJwYm1jdGQyVmlhRzl2YTRJYQpkbUZzYVdSaGRHbHVaeTEzWldKb2IyOXJMbmRsWW1odmIydUNIblpoYkdsa1lYUnBibWN0ZDJWaWFHOXZheTUzClpXSm9iMjlyTG5OMlk0SXNkbUZzYVdSaGRHbHVaeTEzWldKb2IyOXJMbmRsWW1odmIyc3VjM1pqTG1Oc2RYTjAKWlhJdWJHOWpZV3d3SFFZRFZSME9CQllFRkp2Q1hxdjFXK0Uvaml6UUhLMEJIalRCTHVkSE1COEdBMVVkSXdRWQpNQmFBRkQrbFl6eXQva3RCRVQ0eENPODRjYU9MVENiUk1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQW9CbzJZCmY4VkpzWUJYVXpjZUhnU0tiTDUwZUxlczFVeDUyekh4dmFHVTFVWXRlZFRtVEtyeDR3L09SbG1nTEh1SjlRa3AKNEd2TzhzQlZIeDd4SktDWmhYcjY0bVdJeTczRnl2ZlRqaXR3N1puRXhhRk40QTZFcFgyVFZOWmxlVGFVT0VKcgpia2s1amVDeVdQN1BiMW96eWl3bDJPZGZmQzdJYUZ1Vldxd2N1c0tUeWxFYVpxanMvUTFlZzZXYTkwd0c2N3hjCk9RSzZwcDVEcG0rZGw1bVRKbVdhQVR1MXgzb1FpZ3NEeVBLMFc4SlBoQ0lreVREcmJzbit3U0tlaTczaU53UnMKWjVYZjV1RSszN1lKNHB1dytlSWRMQzVkemJPL3pGQWFiUXByR3d4K1l1b1FOWUV4TDEwN1JNQWVITzA5SnZObgpCQVBtcmI1NWx6RUZlWHd5Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
